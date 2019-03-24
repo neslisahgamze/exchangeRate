@@ -19,6 +19,16 @@ class ExchangeRateRepository extends ServiceEntityRepository
         parent::__construct($registry, ExchangeRate::class);
     }
 
+    public function getMinimum()
+    {
+        return $this->createQueryBuilder('u')
+            ->select('e.id, MIN(e.usd) as usd,MIN(e.eur) as eur,' .
+                'MIN(e.gbp) as gbp,MAX(e.updatedAt) as updatedAt')
+            ->from('App:ExchangeRate', 'e')
+            ->getQuery()
+            ->getSingleResult();
+    }
+
     // /**
     //  * @return ExchangeRate[] Returns an array of ExchangeRate objects
     //  */
