@@ -1,28 +1,33 @@
 <?php
 
-namespace App\Service;
+namespace App\Services;
+
 /**
  * Interface ExchangeRateInterface
- * @package App\Service
+ * @package App\Services
  */
 interface ExchangeRateInterface
 {
     /**
      * @return mixed
      */
-    public function getProvider();
+    public function getSource();
+
     /**
      * @return mixed
      */
     public function getUsd();
+
     /**
      * @return mixed
      */
     public function getEur();
+
     /**
      * @return mixed
      */
     public function getGbp();
+
     /**
      * @return mixed
      */
